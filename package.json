@@ -1,5 +1,5 @@
 {
-  "name": "clap-hand",
+  "name": "clap-hand-application",
   "version": "0.0.1",
   "author": "syobochim <syobochim@gmail.com> (https://github.com/syobochim)",
   "description": "Clap Hand App",
@@ -7,7 +7,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/syobochim/ClapHand",
+  "repository": "https://github.com/syobochim/clap-hands-application",
   "devDependencies": {
     "electron": "^10.1.3",
     "electron-builder": "^22.9.1",
