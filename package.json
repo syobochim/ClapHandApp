@@ -30,7 +30,7 @@
   "publish": {
     "provider": "github",
     "owner": "syobochim",
-    "repo": "ClapHand",
+    "repo": "clap-hands-application",
     "releaseType": "release"
   }
 }
