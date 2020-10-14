@@ -1,5 +1,5 @@
 {
-  "name": "clap-hand-application",
+  "name": "claphand",
   "version": "0.0.3",
   "author": "syobochim <syobochim@gmail.com> (https://github.com/syobochim)",
   "description": "Clap Hand App",
@@ -34,6 +34,6 @@
     "releaseType": "release"
   },
   "build": {
-    "appId": "com.syobochim.clap-hands-application"
+    "appId": "com.syobochim.ClapHand"
   }
 }
