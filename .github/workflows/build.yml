@@ -20,6 +20,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+      
+      - name: Copy aws-exports.js
+        run: echo $AWS_EXPORTS > aws-exports.js
+        env: AWS_EXPORTS: ${{ secrets.AWS_EXPORTS }}
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
