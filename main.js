@@ -10,7 +10,8 @@ function createSettingWindow() {
     width: 500,
     height: 300,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      devTools: false
     }
   })
   settingWindow.loadFile('public/menu.html')
@@ -25,16 +26,16 @@ function createClapWindow(eventId) {
     height: 200,
     transparent: true,
     frame: false,
-    // resizable: false,
+    resizable: false,
     alwaysOnTop: true,
+    hasShadow: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'preload.js'),
+      devTools: false
     }
   })
   var size = electronScreen.getPrimaryDisplay().workAreaSize;
   mainWindow.setPosition(size.width - 200, 20)
-
-  // and load the index.html of the app.
   mainWindow.loadFile('public/index.html')
 }
 
