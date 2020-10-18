@@ -34,6 +34,13 @@
     "releaseType": "release"
   },
   "build": {
-    "appId": "com.syobochim.ClapHand"
+    "appId": "com.syobochim.ClapHand",
+    "afterSign": "scripts/notarize.js",
+    "mac": {
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist"
+    }
   }
 }
