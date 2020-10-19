@@ -5,7 +5,6 @@ const path = require('path')
 
 let settingWindow;
 function createSettingWindow() {
-  var electronScreen = screen;
   settingWindow = new BrowserWindow({
     width: 500,
     height: 300,
@@ -20,10 +19,9 @@ function createSettingWindow() {
 let mainWindow;
 function createClapWindow(eventId) {
   // Create the browser window.
-  var electronScreen = screen;
   mainWindow = new BrowserWindow({
-    width: 200,
-    height: 200,
+    width: 350,
+    height: 250,
     transparent: true,
     frame: false,
     resizable: false,
@@ -31,18 +29,29 @@ function createClapWindow(eventId) {
     hasShadow: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      devTools: false
+      // devTools: false
     }
   })
-  var size = electronScreen.getPrimaryDisplay().workAreaSize;
-  mainWindow.setPosition(size.width - 200, 20)
+  let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
+  mainWindow.setPosition(workAreaSize.width - 350, 20)
   mainWindow.loadFile('public/index.html')
 }
 
+function setUpperPosition() {
+  let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
+  mainWindow.setPosition(workAreaSize.width - 350, 20)
+}
+function setLowerPosition() {
+  let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
+  mainWindow.setPosition(workAreaSize.width - 350, workAreaSize.height - 250)
+}
+ 
 function createTaskBar() {
   tray = new Tray(path.join(__dirname, './image/logo.png'))
   const contextMenu = Menu.buildFromTemplate([
     { label: "Setting", click: function () { createSettingWindow() }},
+    { label: "Position : Upper", click: function () { setUpperPosition() }},
+    { label: "Position : Lower", click: function () { setLowerPosition() }},
     { label: "Quit", click: function () { app.quit(); } }
   ])
   tray.setContextMenu(contextMenu)

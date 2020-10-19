@@ -3,16 +3,16 @@ body {
 }
 
 text#emoji {
-    font-size: 20px;
+    font-size: 100px;
     user-select: none;
   }
 
 text#count {
-  font-size: 20px;
+  font-size: 90px;
   font-weight: bold;
   fill: #000;
   stroke: #FFF;
-  stroke-width: 1;
+  stroke-width: 4;
   stroke-linejoin: round;
   user-select: none;
 }
