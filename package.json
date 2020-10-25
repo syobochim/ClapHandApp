@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "aws-appsync": "^1.0.0",
+    "electron-is-dev": "^1.2.0",
+    "electron-updater": "^4.3.5",
     "es6-promise": "^4.1.1",
     "graphql": "^0.11.7",
     "graphql-tag": "^2.5.0",
@@ -31,6 +33,13 @@
   "build": {
     "appId": "com.syobochim.ClapHand",
     "afterSign": "scripts/notarize.js",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "syobochim",
+        "repo": "clap-hands-application"
+      }
+    ],
     "mac": {
       "hardenedRuntime": true,
       "gatekeeperAssess": false,

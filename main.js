@@ -1,7 +1,8 @@
 const { create } = require("domain");
 // Modules to control application life and create native browser window
-const {app, screen, Tray, Menu, BrowserWindow, ipcMain, autoUpdater, dialog} = require("electron");
+const { app, screen, Tray, Menu, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require('path')
+const {autoUpdater} = require("electron-updater");
 
 let settingWindow;
 function createSettingWindow() {
@@ -45,13 +46,13 @@ function setLowerPosition() {
   let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
   mainWindow.setPosition(workAreaSize.width - 350, workAreaSize.height - 250)
 }
- 
+
 function createTaskBar() {
   tray = new Tray(path.join(__dirname, './image/logo.png'))
   const contextMenu = Menu.buildFromTemplate([
-    { label: "Setting", click: function () { createSettingWindow() }},
-    { label: "Position : Upper", click: function () { setUpperPosition() }},
-    { label: "Position : Lower", click: function () { setLowerPosition() }},
+    { label: "Setting", click: function () { createSettingWindow() } },
+    { label: "Position : Upper", click: function () { setUpperPosition() } },
+    { label: "Position : Lower", click: function () { setLowerPosition() } },
     { label: "Quit", click: function () { app.quit(); } }
   ])
   tray.setContextMenu(contextMenu)
@@ -65,6 +66,7 @@ function setEventCode(eventId) {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  autoUpdater.checkForUpdatesAndNotify();
   createSettingWindow()
   createClapWindow()
   createTaskBar()
@@ -90,23 +92,45 @@ ipcMain.handle('eventCode', async (event, eventCode) => {
   return "complete"
 })
 
-// const feedUrl = 'https://rhcc2z3o70.execute-api.ap-northeast-1.amazonaws.com/production/clapHandVersion?version=' + app.getVersion();
-// autoUpdater.setFeedURL({ url: feedUrl })
+const isDev = require('electron-is-dev');
 
-// autoUpdater.checkForUpdates()
+if (isDev) {
+  console.log('Running in development');
+} else {
+  console.log('Running in production');
+  
+  // const feedUrl = 'https://rhcc2z3o70.execute-api.ap-northeast-1.amazonaws.com/production/clapHandVersion/' + app.getVersion();
+  // autoUpdater.setFeedURL({ url: feedUrl })
+  
+  autoUpdater.on('update-downloaded', ({ version, releaseDate }) => {
+    const detail = `${app.getName()} ${version} ${releaseDate}`
 
-// console.log("check for update")
+    dialog.showMessageBox(
+      win, // new BrowserWindow
+      {
+        type: 'question',
+        buttons: ['Restart', 'Later'],
+        defaultId: 0,
+        cancelId: 999,
+        message: 'The new version has been downloaded. Please restart the application to apply the updates.',
+        detail
+      },
+      dialog.showMessageBox(dialogOpts).then((returnValue) => {
+        if (returnValue.response === 0) autoUpdater.quitAndInstall()
+      })
+    )
+  })
 
-// autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-//   const dialogOpts = {
-//     type: 'info',
-//     buttons:  ['Restart', 'Later'],
-//     title: 'Application Update',
-//     message: 'The new version has been downloaded. Please restart the application to apply the updates.',
-//     detail: releaseName + "\n\n" + releaseNotes
-//   }
 
-//   dialog.showMessageBox(dialogOpts).then((returnValue) => {
-//     if (returnValue.response === 0) autoUpdater.quitAndInstall()
-//   })
-// })
+  // autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
+  //   const dialogOpts = {
+  //     type: 'info',
+  //     buttons: ['Restart', 'Later'],
+  //     title: 'Application Update',
+  //     message: 'The new version has been downloaded. Please restart the application to apply the updates.',
+  //     detail: releaseName + "\n\n" + releaseNotes
+  //   }
+
+
+  // })
+}
