@@ -1,6 +1,6 @@
 {
   "name": "claphand",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "author": "syobochim <syobochim@gmail.com> (https://github.com/syobochim)",
   "description": "Clap Hand App",
   "main": "main.js",
@@ -33,13 +33,9 @@
   "build": {
     "appId": "com.syobochim.ClapHand",
     "afterSign": "scripts/notarize.js",
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "syobochim",
-        "repo": "clap-hands-application"
-      }
-    ],
+    "publish": {
+      "provider": "github"
+    },
     "mac": {
       "hardenedRuntime": true,
       "gatekeeperAssess": false,

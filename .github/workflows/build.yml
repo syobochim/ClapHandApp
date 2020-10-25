@@ -37,3 +37,4 @@ jobs:
           APPLE_ID: ${{ secrets.APPLE_ID }}
           APPLE_ID_PASS: ${{ secrets.APPLE_ID_PASS }}
           ASC_PROVIDER: ${{ secrets.ASC_PROVIDER }}
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
