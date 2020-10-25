@@ -6,6 +6,8 @@ const { autoUpdater } = require("electron-updater");
 const log = require("electron-log")
 const isDev = require('electron-is-dev');
 
+log.info("application version : ", app.getVersion())
+
 let settingWindow;
 function createSettingWindow() {
   settingWindow = new BrowserWindow({
@@ -38,6 +40,7 @@ function createClapWindow(eventId) {
   let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
   mainWindow.setPosition(workAreaSize.width - 350, 20)
   mainWindow.setVisibleOnAllWorkspaces(true)
+  mainWindow.setIgnoreMouseEvents(true)
   mainWindow.loadFile('public/index.html')
 }
 
