@@ -17,6 +17,10 @@ text#count {
   user-select: none;
 }
 
+div#error {
+  color: red;
+}
+
 div#menu > * + * {
   margin-left: 40px;
 }

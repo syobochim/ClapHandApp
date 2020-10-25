@@ -27,12 +27,12 @@ const createMutation = window.gql(/* GraphQL */ `
 
 let emoji = "👏";
 let eventCode = null;
-let eventName = "";
-let eventOwner = "";
+let eventName = "default";
+let eventOwner = "default";
 
 function createEvent() {
     const timestamp = new Date().getTime()
-    const inputClap = { emoji: emoji, timestamp: timestamp, count: 0, type: "Clap", event: eventName, owner: eventOwner};
+    const inputClap = { emoji: emoji, timestamp: timestamp, count: 0, type: "Clap", event: eventName, owner: eventOwner };
 
     client.hydrated().then(function (client) {
         client.mutate({
@@ -53,6 +53,12 @@ function createEvent() {
 async function clickEvent() {
     if (document.getElementById("emoji").value != "") {
         emoji = document.getElementById("emoji").value
+    }
+    if (document.getElementById("eventName").value === "" || document.getElementById("eventOwner").value === "") {
+        document.getElementById("error").textContent = "event name and owner are required."
+        return
+    } else {
+        document.getElementById("error").textContent = ""
     }
     eventName = document.getElementById("eventName").value
     eventOwner = document.getElementById("eventOwner").value
