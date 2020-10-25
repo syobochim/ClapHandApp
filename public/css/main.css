@@ -19,6 +19,7 @@ text#count {
 
 div#error {
   color: red;
+  font-size: small;
 }
 
 div#menu > * + * {

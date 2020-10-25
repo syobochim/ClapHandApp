@@ -2,8 +2,9 @@ const { create } = require("domain");
 // Modules to control application life and create native browser window
 const { app, screen, Tray, Menu, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require('path')
-const {autoUpdater} = require("electron-updater");
+const { autoUpdater } = require("electron-updater");
 const log = require("electron-log")
+const isDev = require('electron-is-dev');
 
 let settingWindow;
 function createSettingWindow() {
@@ -36,6 +37,7 @@ function createClapWindow(eventId) {
   })
   let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
   mainWindow.setPosition(workAreaSize.width - 350, 20)
+  mainWindow.setVisibleOnAllWorkspaces(true)
   mainWindow.loadFile('public/index.html')
 }
 
@@ -67,9 +69,11 @@ function setEventCode(eventId) {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  log.transports.file.level = "debug"
+  log.transports.file.level = "info"
   autoUpdater.logger = log
-  autoUpdater.checkForUpdatesAndNotify();
+  if (!isDev) {
+    autoUpdater.checkForUpdates();
+  }
   createSettingWindow()
   createClapWindow()
   createTaskBar()
@@ -94,23 +98,14 @@ ipcMain.handle('eventCode', async (event, eventCode) => {
   setEventCode(eventCode)
   return "complete"
 })
-
-const isDev = require('electron-is-dev');
-
 if (isDev) {
   console.log('Running in development');
 } else {
-  console.log('Running in production');
-  
-  // const feedUrl = 'https://rhcc2z3o70.execute-api.ap-northeast-1.amazonaws.com/production/clapHandVersion/' + app.getVersion();
-  // autoUpdater.setFeedURL({ url: feedUrl })
-  
   autoUpdater.on('update-downloaded', ({ version, releaseDate }) => {
     log.info('application update ...')
     const detail = `${app.getName()} ${version} ${releaseDate}`
-    log.info('log detail : ', detail)
     dialog.showMessageBox(
-      win, // new BrowserWindow
+      mainWindow,
       {
         type: 'question',
         buttons: ['Restart', 'Later'],
@@ -119,22 +114,10 @@ if (isDev) {
         message: 'The new version has been downloaded. Please restart the application to apply the updates.',
         detail
       },
-      dialog.showMessageBox(dialogOpts).then((returnValue) => {
-        if (returnValue.response === 0) autoUpdater.quitAndInstall()
+      res => {
+        if (res === 0) {
+          autoUpdater.quitAndInstall()
+        }
       })
-    )
   })
-
-
-  // autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
-  //   const dialogOpts = {
-  //     type: 'info',
-  //     buttons: ['Restart', 'Later'],
-  //     title: 'Application Update',
-  //     message: 'The new version has been downloaded. Please restart the application to apply the updates.',
-  //     detail: releaseName + "\n\n" + releaseNotes
-  //   }
-
-
-  // })
 }
