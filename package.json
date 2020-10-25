@@ -1,6 +1,6 @@
 {
   "name": "claphand",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "author": "syobochim <syobochim@gmail.com> (https://github.com/syobochim)",
   "description": "Clap Hand App",
   "main": "main.js",
