@@ -34,9 +34,6 @@
   "build": {
     "appId": "com.syobochim.ClapHand",
     "afterSign": "scripts/notarize.js",
-    "publish": {
-      "provider": "github"
-    },
     "mac": {
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
