@@ -3,6 +3,7 @@ const { create } = require("domain");
 const { app, screen, Tray, Menu, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require('path')
 const {autoUpdater} = require("electron-updater");
+const log = require("electron-log")
 
 let settingWindow;
 function createSettingWindow() {
@@ -66,6 +67,8 @@ function setEventCode(eventId) {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
+  log.transports.file.level = "debug"
+  autoUpdater.logger = log
   autoUpdater.checkForUpdatesAndNotify();
   createSettingWindow()
   createClapWindow()
@@ -103,8 +106,9 @@ if (isDev) {
   // autoUpdater.setFeedURL({ url: feedUrl })
   
   autoUpdater.on('update-downloaded', ({ version, releaseDate }) => {
+    log.info('application update ...')
     const detail = `${app.getName()} ${version} ${releaseDate}`
-
+    log.info('log detail : ', detail)
     dialog.showMessageBox(
       win, // new BrowserWindow
       {
