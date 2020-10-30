@@ -8,7 +8,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/syobochim/clap-hands-application",
+  "repository": "https://github.com/syobochim/ClapHandApp",
   "devDependencies": {
     "electron": "^10.1.3",
     "electron-builder": "^22.9.1",
@@ -29,7 +29,7 @@
   "publish": {
     "provider": "github",
     "owner": "syobochim",
-    "repo": "clap-hands-application",
+    "repo": "ClapHandApp",
     "releaseType": "release"
   },
   "build": {
