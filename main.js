@@ -23,11 +23,13 @@ function createSettingWindow() {
 }
 
 let mainWindow;
+const MAIN_WINDOWS_WIDTH = 300;
+const MAIN_WINDOWS_HEIGHT = 200;
 function createClapWindow(eventId) {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 350,
-    height: 250,
+    width: MAIN_WINDOWS_WIDTH,
+    height: MAIN_WINDOWS_HEIGHT,
     transparent: true,
     frame: false,
     resizable: false,
@@ -38,7 +40,7 @@ function createClapWindow(eventId) {
     }
   })
   let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
-  mainWindow.setPosition(workAreaSize.width - 350, 20)
+  mainWindow.setPosition(workAreaSize.width - MAIN_WINDOWS_WIDTH, workAreaSize.height - MAIN_WINDOWS_HEIGHT)
   mainWindow.setAlwaysOnTop(true, "screen-saver")
   mainWindow.setVisibleOnAllWorkspaces(true)
   mainWindow.setIgnoreMouseEvents(true)
@@ -47,19 +49,23 @@ function createClapWindow(eventId) {
 
 function setUpperPosition() {
   let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
-  mainWindow.setPosition(workAreaSize.width - 350, 20)
+  mainWindow.setPosition(workAreaSize.width - MAIN_WINDOWS_WIDTH, 20)
 }
 function setLowerPosition() {
   let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
-  mainWindow.setPosition(workAreaSize.width - 350, workAreaSize.height - 250)
+  mainWindow.setPosition(workAreaSize.width - MAIN_WINDOWS_WIDTH, workAreaSize.height - MAIN_WINDOWS_HEIGHT)
 }
 
 function createTaskBar() {
   tray = new Tray(path.join(__dirname, './image/logo.png'))
   const contextMenu = Menu.buildFromTemplate([
     { label: "Setting", click: function () { createSettingWindow() } },
-    { label: "Position : Upper", click: function () { setUpperPosition() } },
-    { label: "Position : Lower", click: function () { setLowerPosition() } },
+    {
+      label: "Position", submenu: [
+        { label: "Upper", click: function () { setUpperPosition() } },
+        { label: "Lower", click: function () { setLowerPosition() } }
+      ]
+    },
     { label: "Quit", click: function () { app.quit(); } }
   ])
   tray.setContextMenu(contextMenu)

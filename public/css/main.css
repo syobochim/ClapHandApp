@@ -3,12 +3,12 @@ body {
 }
 
 text#emoji {
-    font-size: 100px;
+    font-size: 90px;
     user-select: none;
   }
 
 text#count {
-  font-size: 90px;
+  font-size: 80px;
   font-weight: bold;
   fill: #000;
   stroke: #FFF;
