@@ -7,6 +7,7 @@ const log = require("electron-log")
 const isDev = require('electron-is-dev');
 
 log.info("application version : ", app.getVersion())
+app.dock.hide()
 
 let settingWindow;
 function createSettingWindow() {
@@ -30,15 +31,15 @@ function createClapWindow(eventId) {
     transparent: true,
     frame: false,
     resizable: false,
-    alwaysOnTop: true,
     hasShadow: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      // devTools: false
+      devTools: false
     }
   })
   let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
   mainWindow.setPosition(workAreaSize.width - 350, 20)
+  mainWindow.setAlwaysOnTop(true, "screen-saver")
   mainWindow.setVisibleOnAllWorkspaces(true)
   mainWindow.setIgnoreMouseEvents(true)
   mainWindow.loadFile('public/index.html')
@@ -119,6 +120,7 @@ if (isDev) {
       },
       res => {
         if (res === 0) {
+          log.info('update start')
           autoUpdater.quitAndInstall()
         }
       })
