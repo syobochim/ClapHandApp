@@ -23,12 +23,14 @@ function createSettingWindow() {
       devTools: false
     }
   })
+  settingWindow.setMenu(null)
+  settingWindow.webContents.openDevTools()
   settingWindow.loadFile('public/menu.html')
 }
 
 let mainWindow;
-const MAIN_WINDOWS_WIDTH = 300;
-const MAIN_WINDOWS_HEIGHT = 200;
+const MAIN_WINDOWS_WIDTH = 330;
+const MAIN_WINDOWS_HEIGHT = 220;
 function createClapWindow(eventId) {
   // Create the browser window.
   mainWindow = new BrowserWindow({
