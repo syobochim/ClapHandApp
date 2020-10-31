@@ -21,8 +21,15 @@ jobs:
         with:
           node-version: 12
       
-      - name: Copy aws-exports.js
+      - name: Copy aws-exports.js for macOS
+        if: matrix.os == 'macos-latest'
         run: echo $AWS_EXPORTS > aws-exports.js
+        env:
+          AWS_EXPORTS: ${{ secrets.AWS_EXPORTS }}
+
+      - name: Copy aws-exports.js for win
+        if: matrix.os == 'windows-latest'
+        run: echo $Env:AWS_EXPORTS > aws-exports.js
         env:
           AWS_EXPORTS: ${{ secrets.AWS_EXPORTS }}
 
