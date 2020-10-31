@@ -20,7 +20,7 @@ function createSettingWindow() {
     height: 300,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      devTools: false
+      // devTools: false
     }
   })
   settingWindow.setMenu(null)
