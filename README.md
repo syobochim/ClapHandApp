@@ -11,8 +11,7 @@ By using the same `event name`, you can see other presenters' numbers and compet
 
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031203759.png" width="700px">
 
-# Get Start for MacOS
-(WindowsOS still doesn't work.)
+# Get Start
 
 1. **Download the application for your platform from the [Release page](https://github.com/syobochim/ClapHandApp/releases), and Install it.**
 
