@@ -3,7 +3,6 @@ const button = document.getElementById("createEventButton");
 // 最初は設定画面非表示
 document.getElementById("created").style.display = "none"
 
-console.log("url : ", window.AWS_EXPORTS.aws_appsync_graphqlEndpoint)
 // Set up AppSync client
 const AWSAppSyncClient = window.AWSAppSyncClient
 const client = new AWSAppSyncClient({
