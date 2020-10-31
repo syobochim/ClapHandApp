@@ -7,7 +7,11 @@ const log = require("electron-log")
 const isDev = require('electron-is-dev');
 
 log.info("application version : ", app.getVersion())
-app.dock.hide()
+const is_mac = process.platform==='darwin'
+
+if(is_mac) {
+  app.dock.hide()
+}
 
 let settingWindow;
 function createSettingWindow() {
