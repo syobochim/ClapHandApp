@@ -1,4 +1,4 @@
-name: 'Build and release electron installer'
+name: 'build'
 on:
   push:
     tags:
