@@ -1,7 +1,15 @@
 # Clap Hand Application
-ClapHand is an app that livens up presentations at events.
+ClapHand is an app that livens up online events and presentations.
 
 ![build](https://github.com/syobochim/ClapHandApp/workflows/build/badge.svg)
+
+With this application, pictograms are displayed on the desktop screen of the computer like this, and when the participants react, the numbers are counted up in real time, and the excitement of the participants is visualized.
+
+![Clap](https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031213346.gif)
+
+By using the same `event name`, you can see other presenters' numbers and compete.
+
+<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031203759.png" width="700px">
 
 # Get Start for MacOS
 (WindowsOS still doesn't work.)
