@@ -35,3 +35,15 @@ By using the same `event name`, you can see other presenters' numbers and compet
 Open URL and, Press the emoji on the event page!!
 
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031180540.png" width="400px">
+
+# Setting
+ClapHand's app has several settings.
+
+## Position Setting
+You can change the display position of the desktop application from __macOS menu bar__ and __Windows task tray__.
+The default is shown in the lower right corner.
+
+<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201103/20201103223222.png" width="300px">
+  
+  
+<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201103/20201103230358.png" width="300px">
