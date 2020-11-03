@@ -52,13 +52,21 @@ function createClapWindow(eventId) {
   mainWindow.loadFile('public/index.html')
 }
 
-function setUpperPosition() {
+function setTopRightPosition() {
   let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
   mainWindow.setPosition(workAreaSize.width - MAIN_WINDOWS_WIDTH, 20)
 }
-function setLowerPosition() {
+function setTopLeftPosition() {
+  let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
+  mainWindow.setPosition(0, 0)
+}
+function setBottomRightPosition() {
   let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
   mainWindow.setPosition(workAreaSize.width - MAIN_WINDOWS_WIDTH, workAreaSize.height - MAIN_WINDOWS_HEIGHT)
+}
+function setBottomLeftPosition() {
+  let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
+  mainWindow.setPosition(0, workAreaSize.height - MAIN_WINDOWS_HEIGHT)
 }
 
 function createTaskBar() {
@@ -67,8 +75,10 @@ function createTaskBar() {
     { label: "Setting", click: function () { createSettingWindow() } },
     {
       label: "Position", submenu: [
-        { label: "Upper", click: function () { setUpperPosition() } },
-        { label: "Lower", click: function () { setLowerPosition() } }
+        { label: "Top Right", type: 'radio', checked: false, click: function () { setTopRightPosition() } },
+        { label: "Top Left", type: 'radio', checked: false, click: function () { setTopLeftPosition() } },
+        { label: "Bottom Right", type: 'radio', checked: true, click: function () { setBottomRightPosition() } },
+        { label: "Bottom Left",type: 'radio', checked: false,  click: function () { setBottomLeftPosition() } }
       ]
     },
     { label: "Quit", click: function () { app.quit(); } }
