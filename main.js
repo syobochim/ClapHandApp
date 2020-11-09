@@ -30,7 +30,7 @@ function createSettingWindow() {
 let mainWindow;
 const MAIN_WINDOWS_WIDTH = 330;
 const MAIN_WINDOWS_HEIGHT = 220;
-function createClapWindow(eventId) {
+function createClapWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: MAIN_WINDOWS_WIDTH,
