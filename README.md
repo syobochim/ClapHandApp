@@ -47,3 +47,18 @@ The default is shown in the lower right corner.
   
   
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201103/20201103230358.png" width="300px">
+
+## Existing Event
+If you already created event, You can set event ID.
+
+1. Get "Event ID" from event page.
+
+Event ID is an alphanumeric string in the location of the image below.
+
+<img src="https://user-images.githubusercontent.com/3622660/98784007-c6180500-243d-11eb-9635-245e9bc8c3a5.png" width="500px">
+
+2. Press "Event Setting" button.
+
+<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031170111.png" width="500px">
+
+3. Input Event ID and click "setting" button.
