@@ -62,3 +62,9 @@ Event ID is an alphanumeric string in the location of the image below.
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031170111.png" width="400px">
 
 3. Input Event ID and click "setting" button.
+
+## Dual Display
+If you use dual display and want to move application window to another display, you can move it.
+
+1. Open Mission Control. ( Swipe up with three or four fingers on your trackpad, or double-tap the surface of your Magic Mouse with two fingers. )
+2. Drag and drop the application window.
