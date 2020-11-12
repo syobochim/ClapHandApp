@@ -29,7 +29,7 @@ function createSettingWindow() {
 
 let mainWindow;
 const MAIN_WINDOWS_WIDTH = 330;
-const MAIN_WINDOWS_HEIGHT = 220;
+const MAIN_WINDOWS_HEIGHT = 500;
 function createClapWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -49,7 +49,7 @@ function createClapWindow() {
   mainWindow.setAlwaysOnTop(true, "screen-saver")
   mainWindow.setVisibleOnAllWorkspaces(true)
   mainWindow.setIgnoreMouseEvents(true)
-  mainWindow.loadFile('public/index.html')
+  mainWindow.loadFile('public/clap.html')
 }
 
 function setTopRightPosition() {
