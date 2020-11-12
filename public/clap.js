@@ -29,26 +29,26 @@ window.ipcRenderer.on('eventId', (event, eventId) => {
         }
     });
     const realtimeResults = function realtimeResults(data) {
-        const x = window.innerWidth - 120;
-        const y = window.innerHeight - 150;
+        const x = window.innerWidth - 250 + Math.random() * 120;
+        const y = window.innerHeight - 250 + Math.random() * 120;
         let emoji = document.createElement('div');
         console.log(data.data.onUpdateClapCount)
         emoji.textContent = data.data.onUpdateClapCount.emoji
         emoji.setAttribute('class', 'clap');
-        emoji.setAttribute('style', 'top:' + y + 'px; left:' + x + 'px;' +
-            'animation : horizontal 1s ease-in-out -' + Math.random() + 's infinite alternate');
+        emoji.setAttribute('style', 'top:' + y + 'px; left:' + x + 'px;')
         const clapAnimation = emoji.animate(
             [
-                { top: y + 'px' },
-                { top: '0px', opacity: '0' }
+                { top: y + 'px', left: x + 'px'},
+                { top: y + 40 + 'px', left: x + 40 + 'px'}
             ],
             {
-                duration: 1500,
+                duration: 1000,
                 easing: 'ease-in'
             }
         )
         clapAnimation.onfinish = function () {
             emoji.remove()
+            console.log("finish")
         }
         document.body.appendChild(emoji);
     };

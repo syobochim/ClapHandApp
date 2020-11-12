@@ -1,10 +1,11 @@
 @keyframes horizontal {
-    0% { transform:translateX( -100px); }
-  100% { transform:translateX(  0px); }
+    0% { font-size: 0px; }
+    20% { font-size: 100px;}
+  100% { font-size: 0px; }
 }
 .clap {
   position: absolute;
-  font-size: 80px;
+  animation: horizontal 1s ease-in-out infinite alternate;
 }
 
 body {
