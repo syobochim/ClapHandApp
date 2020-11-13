@@ -28,8 +28,8 @@ function createSettingWindow() {
 }
 
 let mainWindow;
-const MAIN_WINDOWS_WIDTH = 330;
-const MAIN_WINDOWS_HEIGHT = 500;
+const MAIN_WINDOWS_WIDTH = 300;
+const MAIN_WINDOWS_HEIGHT = 350;
 function createClapWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -48,7 +48,7 @@ function createClapWindow() {
   mainWindow.setPosition(workAreaSize.width - MAIN_WINDOWS_WIDTH, workAreaSize.height - MAIN_WINDOWS_HEIGHT)
   mainWindow.setAlwaysOnTop(true, "screen-saver")
   mainWindow.setVisibleOnAllWorkspaces(true)
-  mainWindow.setIgnoreMouseEvents(true)
+  // mainWindow.setIgnoreMouseEvents(true)
   mainWindow.loadFile('public/clap.html')
 }
 

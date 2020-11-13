@@ -1,14 +1,16 @@
-@keyframes horizontal {
-    0% { font-size: 0px; }
-    20% { font-size: 100px;}
-  100% { font-size: 0px; }
+@keyframes fadeout {
+   70% { font-size: 30px;}
+  100% { font-size: 0px;}
 }
 .clap {
   position: absolute;
-  animation: horizontal 1s ease-in-out infinite alternate;
+  top: 200px;
+  animation: fadeout 1.5s ease-in-out infinite alternate;
 }
 
-body {
-    width: 300px;
-    height: 600px;
+#hand {
+  font-size: 100px;
+  position: absolute;
+  top: 200px;
+  left: 120px;
 }
