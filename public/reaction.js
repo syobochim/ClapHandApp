@@ -32,11 +32,11 @@ window.ipcRenderer.on('eventId', (event, eventId) => {
     });
     const realtimeResults = function realtimeResults(data) {
         const x = 100 + Math.random() * 70;
-        const y = 180;
-        const fontSize = 30 + Math.random() * 40
+        const y = 200;
+        const fontSize = 50 + Math.random() * 80
         let reaction = document.createElement('div');
         reaction.textContent = data.data.onUpdateClapCount.emoji
-        reaction.setAttribute('class', 'clap');
+        reaction.setAttribute('class', 'reaction');
         reaction.setAttribute('style', 'left:' + x + 'px; font-size:' + fontSize + 'px;');
         const reactionAnimation = reaction.animate(
             [
@@ -52,16 +52,6 @@ window.ipcRenderer.on('eventId', (event, eventId) => {
             reaction.remove()
         }
         document.body.appendChild(reaction);
-
-        hand.animate(
-            [
-                { top: '215px' },
-                { top: '200px' }
-            ],
-            {
-                duration: 500
-            }
-        )
     };
     observable.subscribe({
         next: realtimeResults,

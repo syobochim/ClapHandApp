@@ -49,7 +49,7 @@ function createClapWindow() {
   mainWindow.setAlwaysOnTop(true, "screen-saver")
   mainWindow.setVisibleOnAllWorkspaces(true)
   // mainWindow.setIgnoreMouseEvents(true)
-  mainWindow.loadFile('public/clap.html')
+  mainWindow.loadFile('public/reaction.html')
 }
 
 function setTopRightPosition() {
@@ -57,7 +57,6 @@ function setTopRightPosition() {
   mainWindow.setPosition(workAreaSize.width - MAIN_WINDOWS_WIDTH, 20)
 }
 function setTopLeftPosition() {
-  let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
   mainWindow.setPosition(0, 0)
 }
 function setBottomRightPosition() {
