@@ -1,0 +1,9 @@
+@keyframes fadeout {
+   70% { font-size: 80px;}
+  100% { font-size: 0px; }
+}
+.reaction {
+  position: absolute;
+  top: 200px;
+  animation: fadeout 1.5s ease-in-out infinite alternate;
+}

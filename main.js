@@ -17,19 +17,19 @@ let settingWindow;
 function createSettingWindow() {
   settingWindow = new BrowserWindow({
     width: 500,
-    height: 300,
+    height: 580,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       devTools: false
     }
   })
   settingWindow.setMenu(null)
-  settingWindow.loadFile('public/menu.html')
+  settingWindow.loadFile('public/create.html')
 }
 
 let mainWindow;
-const MAIN_WINDOWS_WIDTH = 330;
-const MAIN_WINDOWS_HEIGHT = 220;
+const MAIN_WINDOWS_WIDTH = 300;
+const MAIN_WINDOWS_HEIGHT = 350;
 function createClapWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -49,7 +49,7 @@ function createClapWindow() {
   mainWindow.setAlwaysOnTop(true, "screen-saver")
   mainWindow.setVisibleOnAllWorkspaces(true)
   mainWindow.setIgnoreMouseEvents(true)
-  mainWindow.loadFile('public/index.html')
+  mainWindow.loadFile('public/reaction.html')
 }
 
 function setTopRightPosition() {
@@ -57,7 +57,6 @@ function setTopRightPosition() {
   mainWindow.setPosition(workAreaSize.width - MAIN_WINDOWS_WIDTH, 20)
 }
 function setTopLeftPosition() {
-  let workAreaSize = screen.getPrimaryDisplay().workAreaSize;
   mainWindow.setPosition(0, 0)
 }
 function setBottomRightPosition() {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval'">
+    <link rel="stylesheet" href="./css/setting.css">
+</head>
+
+<body>
+    <div class="body-wrapper">
+        <h1>Create Event</h1>
+        <div class="form-item">
+            <label for="eventName"></label>
+            <input type="text" id="eventName" required="required" placeholder="Event Name"></input>
+        </div>
+        <div class="form-item">
+            <label for="eventOwner"></label>
+            <input type="text" id="eventOwner" required="required" placeholder="Owner"></input>
+        </div>
+        <div class="form-item">
+            <label for="emoji">Emoji</label>
+            <input type="text" id="emoji" placeholder="❤️ - Option"></input>
+            <p class="hint">macOS: Ctrl + ⌘ + Space / Windows: Windows + . (dot)</p>
+        </div>
+        <div class="button-panel">
+            <button class="button" id="createEventButton">Create Event</button>
+        </div>
+        <div class="form-footer">
+            <p><a href="./setting.html">​Do you already have an event?</a></p>
+        </div>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script src="./eventCreate.js"></script>
+</body>
+
+</html>
