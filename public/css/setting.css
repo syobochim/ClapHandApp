@@ -37,15 +37,21 @@ label {
 .info-item {
   margin-bottom: 1.5em;
   width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+  font-size: 1em;
 }
 
-.info-item div {
-  /* margin-top: 0.5em; */
-  border: none;
-  color: #666;
+#copy {
+  margin-top: 5px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
-  width: 100%
+  padding: 2px;
+  font-size: 0.8em;
+  color: #666;
+  background: #fafafa;
+  display: inline-block;
+  border: 1px solid #666;
+  border-radius: 4px;
 }
 
 .qrcode {
@@ -77,6 +83,10 @@ form {
 .form-item input:focus {
   border-bottom: 2px solid #c0c0c0;
   outline: none;
+}
+
+.error::placeholder {
+  color: red;
 }
 
 .button-panel {
@@ -117,4 +127,9 @@ form {
 
 .form-footer a:hover {
   border-bottom: 1px dotted #8c8c8c;
+}
+
+.hint {
+  font-size: 0.7em;
+  color: #666;
 }

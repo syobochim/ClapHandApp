@@ -25,8 +25,6 @@ const createMutation = window.gql(/* GraphQL */ `
 
 let emoji = "❤️";
 let eventCode = null;
-let eventName = "default";
-let eventOwner = "default";
 
 async function createEvent(eventName, eventOwner) {
     const timestamp = new Date().getTime()
@@ -54,12 +52,16 @@ async function clickEvent() {
     if (document.getElementById("emoji").value != "") {
         emoji = document.getElementById("emoji").value
     }
-    if (document.getElementById("eventName").value === "" || document.getElementById("eventOwner").value === "") {
+    const nameForm = document.getElementById("eventName")
+    const ownerForm = document.getElementById("eventOwner")
+    if (nameForm.value === "" || ownerForm.value === "") {
+        nameForm.setAttribute('class', 'error')
+        ownerForm.setAttribute('class', 'error')
+        nameForm.placeholder = "EventName - required"
+        ownerForm.placeholder = "EventOwner - required"
         return
     }
-    eventName = document.getElementById("eventName").value
-    eventOwner = document.getElementById("eventOwner").value
-    const eventURL = await createEvent(eventName, eventOwner)
+    const eventURL = await createEvent(nameForm.value, ownerForm.value)
     location.href = './info.html?eventURL=' + eventURL
 };
 

@@ -17,10 +17,10 @@ let settingWindow;
 function createSettingWindow() {
   settingWindow = new BrowserWindow({
     width: 500,
-    height: 550,
+    height: 580,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      // devTools: false
+      devTools: false
     }
   })
   settingWindow.setMenu(null)
