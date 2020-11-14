@@ -5,7 +5,11 @@ ClapHand is an app that livens up online events and presentations.
 
 With this application, pictograms are displayed on the desktop screen of the computer like this, and when the participants react, the numbers are counted up in real time, and the excitement of the participants is visualized.
 
-![Clap](https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031213346.gif)
+<img width="700" alt="create" src="https://user-images.githubusercontent.com/3622660/99151204-cda90980-26dc-11eb-80fc-595f6918eb8b.gif">
+
+You can change the emoji freely.
+
+<img width="700" alt="create" src="https://user-images.githubusercontent.com/3622660/99151124-58d5cf80-26dc-11eb-9eba-43374fceefba.gif">
 
 By using the same `event name`, you can see other presenters' numbers and compete.
 
@@ -15,20 +19,16 @@ By using the same `event name`, you can see other presenters' numbers and compet
 
 1. **Download the application for your platform from the [Release page](https://github.com/syobochim/ClapHandApp/releases), and Install it.**
 
-2. **Press "Create Event" button.**
-
-<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031170111.png" width="500px">
-
-3. **Set properties.**
+2. **Set properties.**
 - Event Name (required)
 - Owner (Required)
 - Emoji (option)
 
-<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031171522.png" width="500px">
+<img width="500" alt="create" src="https://user-images.githubusercontent.com/3622660/99151283-50ca5f80-26dd-11eb-9f02-5830a27dc786.png">
 
 4. **Share event participant URL and QR code.**
 
-<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031172755.png" width="500px">
+<img width="500" alt="info" src="https://user-images.githubusercontent.com/3622660/99151318-a7379e00-26dd-11eb-94e4-439173771196.png">
 
 5. **Let's Clap!**
 
@@ -49,19 +49,21 @@ The default is shown in the lower right corner.
 <img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201103/20201103230358.png" width="300px">
 
 ## Existing Event
-If you already created event, You can set event ID.
+If you already created event, You can set exsisting Event Code.
 
-1. Get "Event ID" from event page.
+1. Get "Event Code" from event page.
 
 Event ID is an alphanumeric string in the location of the image below.
 
 <img src="https://user-images.githubusercontent.com/3622660/98784007-c6180500-243d-11eb-9635-245e9bc8c3a5.png" width="300px">
 
-2. Open application and press "Event Setting" button.
+2. Open application and press **"Do you already have an event?" in footer.**
 
-<img src="https://cdn-ak.f.st-hatena.com/images/fotolife/s/syobochim/20201031/20201031170111.png" width="400px">
+<img width="500" alt="create" src="https://user-images.githubusercontent.com/3622660/99151283-50ca5f80-26dd-11eb-9f02-5830a27dc786.png">
 
-3. Input Event ID and click "setting" button.
+3. Input Event ID and click **"SET EVENT" button.**
+
+<img width="500" alt="setting" src="https://user-images.githubusercontent.com/3622660/99151386-21682280-26de-11eb-8176-c99fdf5a2ebe.png">
 
 ## Dual Display
 If you use dual display and want to move application window to another display, you can move it.
