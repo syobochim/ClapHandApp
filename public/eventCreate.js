@@ -1,11 +1,9 @@
 // 要素を取得
 const button = document.getElementById("createEventButton");
-// 最初は設定画面非表示
-document.getElementById("created").style.display = "none"
 
 // Set up AppSync client
 const AWSAppSyncClient = window.AWSAppSyncClient
-const client = new AWSAppSyncClient({
+const AppSyncClient = new AWSAppSyncClient({
     url: window.AWS_EXPORTS.aws_appsync_graphqlEndpoint,
     region: window.AWS_EXPORTS.aws_appsync_region,
     auth: {
@@ -25,29 +23,31 @@ const createMutation = window.gql(/* GraphQL */ `
         }}
 `)
 
-let emoji = "👏";
+let emoji = "❤️";
 let eventCode = null;
 let eventName = "default";
 let eventOwner = "default";
 
-function createEvent() {
+async function createEvent(eventName, eventOwner) {
     const timestamp = new Date().getTime()
-    const inputClap = { emoji: emoji, timestamp: timestamp, count: 0, type: "Clap", event: eventName, owner: eventOwner };
-
-    client.hydrated().then(function (client) {
-        client.mutate({
-            mutation: createMutation,
-            variables: {
-                input: inputClap
-            }
-        }).then(function logData(data) {
-            eventCode = data.data.createClap.id
-            const EVENT_URL = "https://dprn9mw3rdpyz.cloudfront.net/?id=" + eventCode
-            document.getElementById('url').textContent = EVENT_URL
-            document.getElementById('qrcode').src = "https://chart.apis.google.com/chart?chs=150x150&cht=qr&chl=" + EVENT_URL
-            window.ipcRenderer.invoke('eventCode', eventCode)
-        }).catch(console.error);
-    });
+    const inputClap = {
+        emoji: emoji,
+        timestamp: timestamp,
+        count: 0,
+        type: "Clap",
+        event: eventName,
+        owner: eventOwner
+    };
+    const client = await AppSyncClient.hydrated()
+    const data = await client.mutate({
+        mutation: createMutation,
+        variables: {
+            input: inputClap
+        }
+    })
+    eventCode = data.data.createClap.id
+    window.ipcRenderer.invoke('eventCode', eventCode)
+    return "https://dprn9mw3rdpyz.cloudfront.net/?id=" + eventCode
 }
 
 async function clickEvent() {
@@ -55,16 +55,12 @@ async function clickEvent() {
         emoji = document.getElementById("emoji").value
     }
     if (document.getElementById("eventName").value === "" || document.getElementById("eventOwner").value === "") {
-        document.getElementById("error").textContent = "event name and owner are required."
         return
-    } else {
-        document.getElementById("error").textContent = ""
     }
     eventName = document.getElementById("eventName").value
     eventOwner = document.getElementById("eventOwner").value
-    createEvent()
-    document.getElementById("input").style.display = "none"
-    document.getElementById("created").style.display = "flex"
+    const eventURL = await createEvent(eventName, eventOwner)
+    location.href = './info.html?eventURL=' + eventURL
 };
 
 //addEventListenerで登録

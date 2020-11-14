@@ -2,8 +2,10 @@
 const button = document.getElementById("eventSettingButton");
 
 async function setEventId() {
-    const result = await window.ipcRenderer.invoke('eventCode', document.getElementById("eventCode").value)
-    window.close()
+    const eventCode = document.getElementById("eventCode").value
+    const result = await window.ipcRenderer.invoke('eventCode', eventCode)
+    const eventURL = "https://dprn9mw3rdpyz.cloudfront.net/?id=" + eventCode
+    location.href = './info.html?eventURL=' + eventURL
 };
 
 //addEventListenerで登録
