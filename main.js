@@ -48,7 +48,7 @@ function createClapWindow() {
   mainWindow.setPosition(workAreaSize.width - MAIN_WINDOWS_WIDTH, workAreaSize.height - MAIN_WINDOWS_HEIGHT)
   mainWindow.setAlwaysOnTop(true, "screen-saver")
   mainWindow.setVisibleOnAllWorkspaces(true)
-  // mainWindow.setIgnoreMouseEvents(true)
+  mainWindow.setIgnoreMouseEvents(true)
   mainWindow.loadFile('public/reaction.html')
 }
 
