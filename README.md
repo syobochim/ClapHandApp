@@ -26,11 +26,11 @@ By using the same `event name`, you can see other presenters' numbers and compet
 
 <img width="500" alt="create" src="https://user-images.githubusercontent.com/3622660/99151283-50ca5f80-26dd-11eb-9f02-5830a27dc786.png">
 
-4. **Share event participant URL and QR code.**
+3. **Share event participant URL and QR code.**
 
 <img width="500" alt="info" src="https://user-images.githubusercontent.com/3622660/99151318-a7379e00-26dd-11eb-94e4-439173771196.png">
 
-5. **Let's Clap!**
+4. **Let's Clap!**
 
 Open URL and, Press the emoji on the event page!!
 
@@ -64,6 +64,10 @@ Event ID is an alphanumeric string in the location of the image below.
 3. Input Event ID and click **"SET EVENT" button.**
 
 <img width="500" alt="setting" src="https://user-images.githubusercontent.com/3622660/99151386-21682280-26de-11eb-8176-c99fdf5a2ebe.png">
+
+4. **Share event participant URL and QR code.**
+
+<img width="500" alt="info" src="https://user-images.githubusercontent.com/3622660/99151318-a7379e00-26dd-11eb-94e4-439173771196.png">
 
 ## Dual Display
 If you use dual display and want to move application window to another display, you can move it.
