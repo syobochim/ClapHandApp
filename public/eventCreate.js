@@ -23,7 +23,7 @@ const createMutation = window.gql(/* GraphQL */ `
         }}
 `)
 
-let emoji = "❤️";
+let emoji = "👍";
 let eventCode = null;
 
 async function createEvent(eventName, eventOwner) {
