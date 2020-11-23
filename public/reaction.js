@@ -1,15 +1,5 @@
 // Set up AppSync client
-const AWSAppSyncClient = window.AWSAppSyncClient
-const client = new AWSAppSyncClient({
-    url: window.AWS_EXPORTS.aws_appsync_graphqlEndpoint,
-    region: window.AWS_EXPORTS.aws_appsync_region,
-    auth: {
-        type: window.AWS_EXPORTS.aws_appsync_authenticationType,
-        apiKey: window.AWS_EXPORTS.aws_appsync_apiKey
-    },
-    fetchPolicy: 'network-only',
-    disableOffline: true
-});
+const client = window.AppSyncClient
 
 // Set up a subscription query
 const subquery = window.gql(/* GraphQL */ `
