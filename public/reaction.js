@@ -13,6 +13,11 @@ subscription OnUpdateClapCount($id: ID) {
 
 let hand = document.getElementById('hand')
 
+// const audio = document.querySelector('#audio')
+// function audioPlay(){
+//     audio.play()
+// }
+
 window.ipcRenderer.on('eventId', (event, eventId) => {
     const observable = client.subscribe({
         query: subquery,
@@ -21,6 +26,7 @@ window.ipcRenderer.on('eventId', (event, eventId) => {
         }
     });
     const realtimeResults = function realtimeResults(data) {
+        // audioPlay()
         const x = 100 + Math.random() * 70;
         const y = 200;
         const fontSize = 50 + Math.random() * 80
